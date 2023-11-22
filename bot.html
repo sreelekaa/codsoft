@@ -9,3 +9,38 @@
     </script> 
     </body> 
     </html>
+                #USING PYTHON
+import random
+
+def generate_response(user_message):
+    greetings = ['hello', 'hi', 'hey', 'greetings', 'howdy']
+    farewells = ['bye', 'goodbye', 'see you', 'farewell']
+    thanks = ['thanks', 'thank you', 'appreciate it', 'thanks a lot']
+
+    user_message = user_message.lower()
+
+    if any(greeting in user_message for greeting in greetings):
+        return "Hello! How can I help you today?"
+    elif any(farewell in user_message for farewell in farewells):
+        return "Goodbye! Have a great day."
+    elif any(thank in user_message for thank in thanks):
+        return "You're welcome! If you have more questions, feel free to ask."
+    else:
+        return "I'm a simple bot and don't understand that. Please ask me something else."
+
+def main():
+    print("Chatbot: Hello! Type 'exit' to end the conversation.")
+
+    while True:
+        user_input = input("You: ")
+        
+        if user_input.lower() == 'exit':
+            print("Chatbot: Goodbye! Have a great day.")
+            break
+
+        response = generate_response(user_input)
+        print(f"Chatbot: {response}")
+
+if __name__ == "__main__":
+    main()
+
